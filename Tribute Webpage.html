@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. APJ Abdul Kalam - Dynamic Tribute</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+      font-family:Georgia, 'Times New Roman', serif;
+      overflow-x:hidden;
+      animation:fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+
+    .center{
+      text-align:center;
+      padding-top:40px;
+      animation:slideDown 1.2s ease;
+    }
+
+    @keyframes slideDown{
+      from{transform:translateY(-40px); opacity:0;}
+      to{transform:translateY(0); opacity:1;}
+    }
+
+    h1{
+      font-size:2.9rem;
+      letter-spacing:1px;
+    }
+
+    .year{
+      font-size:1.2rem;
+      opacity:0.8;
+      margin-top:-10px;
+      animation:fadeIn 1.5s ease-in;
+    }
+
+    .play-btn{
+      margin-top:30px;
+      font-size:45px;
+      cursor:pointer;
+      opacity:0.7;
+      transition:0.3s;
+    }
+
+    .play-btn:hover{
+      opacity:1;
+      transform:scale(1.25);
+      text-shadow:0 0 20px #fff;
+    }
+
+    /* QUOTE SECTION FULL WIDTH */
+    .quote-section{
+      width:100%;
+      background:#fff;
+      color:#000;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:60px 8%;
+      margin-top:40px;
+      animation:fadeInUp 1.2s ease;
+    }
+
+    @keyframes fadeInUp{
+      from{transform:translateY(40px); opacity:0;}
+      to{transform:translateY(0); opacity:1;}
+    }
+
+    .quote-text{
+      font-size:1.8rem;
+      width:45%;
+      line-height:1.4;
+      font-style:italic;
+    }
+
+    .quote-img img{
+      width:320px;
+      border-radius:10px;
+      box-shadow:0 0 20px rgba(0,0,0,0.4);
+      transition:0.3s;
+    }
+
+    .quote-img img:hover{
+      transform:scale(1.05);
+    }
+
+    .bio-section{
+      padding:60px 100px;
+      max-width:900px;
+      margin:auto;
+      animation:fadeInUp 1.4s ease;
+    }
+
+    .bio-section h2{
+      font-size:2.2rem;
+      margin-bottom:15px;
+      text-align:center;
+    }
+
+    .bio-section p{
+      font-size:1.1rem;
+      line-height:1.8;
+      opacity:0.95;
+      margin-bottom:15px;
+      display:none;
+      transition:0.5s ease;
+    }
+
+    #toggleBtn{
+      background:#fff;
+      color:#000;
+      padding:12px 25px;
+      border-radius:25px;
+      border:none;
+      cursor:pointer;
+      font-size:1rem;
+      font-weight:bold;
+      display:block;
+      margin:20px auto;
+      transition:0.3s;
+    }
+
+    #toggleBtn:hover{
+      transform:scale(1.05);
+      background:#000;
+      color:#fff;
+      border:1px solid #fff;
+    }
+
+    /* PEOPLE SECTION */
+    .people-section{
+      margin-top:50px;
+      padding:40px 5%;
+      text-align:center;
+    }
+
+    .people-section h2{
+      font-size:2rem;
+      margin-bottom:30px;
+    }
+
+    .people-grid{
+      display:flex;
+      justify-content:space-around;
+      flex-wrap:wrap;
+      gap:30px;
+    }
+
+    .person-card{
+      background:#111;
+      width:180px;
+      padding:15px;
+      border-radius:12px;
+      box-shadow:0 0 12px rgba(255,255,255,0.1);
+      transition:0.3s;
+    }
+
+    .person-card:hover{
+      transform:scale(1.06);
+      box-shadow:0 0 25px rgba(255,255,255,0.3);
+    }
+
+    .person-card img{
+      width:100%;
+      border-radius:10px;
+    }
+
+    .person-card h3{
+      margin-top:10px;
+      font-size:1.1rem;
+    }
+
+    .explore-btn{
+      background:#fff;
+      color:#000;
+      border:none;
+      padding:8px 18px;
+      margin-top:12px;
+      border-radius:20px;
+      cursor:pointer;
+      font-weight:bold;
+      transition:0.3s;
+    }
+
+    .explore-btn:hover{
+      background:#000;
+      color:#fff;
+      border:1px solid #fff;
+      transform:scale(1.05);
+    }
+
+    footer{
+      margin-top:40px;
+      padding:20px 0;
+      text-align:center;
+      opacity:0.7;
+      font-size:0.9rem;
+      border-top:1px solid #444;
+    }
+
+    @media (max-width:768px){
+      .quote-section{
+        flex-direction:column;
+        text-align:center;
+      }
+      .quote-text{
+        width:100%;
+        margin-bottom:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="center">
+    <h1>Dr. APJ Abdul Kalam</h1>
+    <div class="year">1931 – 2015</div>
+
+    <div class="play-btn" onclick="playAudio()">▶</div>
+  </div>
+
+  <!-- Audio -->
+  <audio id="audio">
+    <source src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav" type="audio/wav">
+  </audio>
+
+  <!-- Quote Section -->
+  <div class="quote-section">
+    <div class="quote-text">
+      “Dream is not that which you see while sleeping.  
+      Dream is something that does not let you sleep.”
+    </div>
+
+    <div class="quote-img">
+      <img src="C:\Users\megha\Downloads\images (1).jpeg">
+    </div>
+  </div>
+
+  <!-- Biography Section -->
+  <div class="bio-section">
+    <h2>Biography</h2>
+
+    <button id="toggleBtn" onclick="toggleBio()">Read More</button>
+
+    <p class="bio">
+      Dr. APJ Abdul Kalam, popularly known as the "Missile Man of India", was an eminent scientist and the 11th President of India.
+    </p>
+
+    <p class="bio">
+      He made significant contributions to ISRO and DRDO, leading India's missile and nuclear programs.
+    </p>
+
+    <p class="bio">
+      He inspired millions with his words, books, and vision for India 2020.
+    </p>
+
+    <p class="bio">
+      He passed away on 27 July 2015 while delivering a lecture at IIM Shillong.
+    </p>
+  </div>
+
+ <!-- PEOPLE SECTION -->
+<div class="people-section">
+  <h2>Other Great Personalities</h2>
+
+  <div class="people-grid">
+
+    <div class="person-card">
+      <img src="C:\Users\megha\Downloads\200930184541-01-gandhi-life.jpg" alt="Mahatma Gandhi">
+      <h3>Mahatma Gandhi</h3>
+      <a href="gandhi.html"><button class="explore-btn">Explore</button></a>
+    </div>
+
+    <div class="person-card">
+      <img src="C:\Users\megha\Downloads\IMG-20230819-WA0001.webp"alt="Subhas Chandra Bose">
+      <h3>Subhas Chandra Bose</h3>
+      <a href="bose.html"><button class="explore-btn">Explore</button></a>
+    </div>
+
+    <div class="person-card">
+      <img src="C:\Users\megha\Downloads\b483ed013507bdbf674b616c15553edc14970009-506x646.avif" alt="Swami Vivekananda">
+      <h3>Swami Vivekananda</h3>
+      <a href="vivekananda.html"><button class="explore-btn">Explore</button></a>
+    </div>
+
+    <div class="person-card">
+      <img src="C:\Users\megha\Downloads\1636527256.jpg" alt="Bhagat Singh">
+      <h3>Bhagat Singh</h3>
+      <a href="bhagat.html"><button class="explore-btn">Explore</button></a>
+    </div>
+
+    <div class="person-card">
+      <img src="C:\Users\megha\Downloads\BR-Ambedkar-Remembrance-Day-History-Significance-Contributions.jpg" alt="Chhatrapati Shivaji Maharaj">
+      <h3>Dr. Bhimrao Ramji Ambedkar</h3>
+     <a href="ambedkar.html"><button class="explore-btn">Explore</button></a>
+    </div>
+
+  </div>
+</div>
+
+  <footer>
+    Made with ❤️ for Dr. APJ Abdul Kalam
+  </footer>
+
+<script>
+  function playAudio(){
+    document.getElementById("audio").play();
+  }
+
+  function toggleBio(){
+    let bios = document.querySelectorAll(".bio");
+    let btn = document.getElementById("toggleBtn");
+
+    bios.forEach(p => {
+      p.style.display = (p.style.display === "block") ? "none" : "block";
+    });
+
+    btn.innerText = btn.innerText === "Read More" ? "Show Less" : "Read More";
+  }
+</script>
+
+</body>
+</html>

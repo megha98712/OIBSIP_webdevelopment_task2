@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subhas Chandra Bose - Tribute</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+      font-family:Georgia, 'Times New Roman', serif;
+      overflow-x:hidden;
+      animation:fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn{
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+
+    .center{
+      text-align:center;
+      padding-top:40px;
+      animation:slideDown 1.2s ease;
+    }
+
+    @keyframes slideDown{
+      from{transform:translateY(-40px); opacity:0;}
+      to{transform:translateY(0); opacity:1;}
+    }
+
+    h1{
+      font-size:2.9rem;
+      letter-spacing:1px;
+    }
+
+    .year{
+      font-size:1.2rem;
+      opacity:0.8;
+      margin-top:-10px;
+      animation:fadeIn 1.5s ease-in;
+    }
+
+    .quote-section{
+      background:#fff;
+      color:#000;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:50px;
+      margin-top:40px;
+      border-radius:10px;
+      width:90%;
+      margin-left:auto;
+      margin-right:auto;
+      animation:fadeInUp 1.2s ease;
+    }
+
+    @keyframes fadeInUp{
+      from{transform:translateY(40px); opacity:0;}
+      to{transform:translateY(0); opacity:1;}
+    }
+
+    .quote-text{
+      font-size:1.8rem;
+      width:45%;
+      line-height:1.4;
+      font-style:italic;
+    }
+
+    .quote-img img{
+      width:300px;
+      border-radius:10px;
+      box-shadow:0 0 20px rgba(0,0,0,0.4);
+      transition:0.3s;
+    }
+
+    .quote-img img:hover{
+      transform:scale(1.05);
+    }
+
+    .bio-section{
+      padding:60px 100px;
+      max-width:900px;
+      margin:auto;
+      animation:fadeInUp 1.4s ease;
+    }
+
+    .bio-section h2{
+      font-size:2.2rem;
+      margin-bottom:15px;
+      text-align:center;
+    }
+
+    .bio-section p{
+      font-size:1.1rem;
+      line-height:1.8;
+      opacity:0.95;
+      margin-bottom:15px;
+      display:none;
+      transition:0.5s ease;
+    }
+
+    #toggleBtn{
+      background:#fff;
+      color:#000;
+      padding:12px 25px;
+      border-radius:25px;
+      border:none;
+      cursor:pointer;
+      font-size:1rem;
+      font-weight:bold;
+      display:block;
+      margin:20px auto;
+      transition:0.3s;
+    }
+
+    #toggleBtn:hover{
+      transform:scale(1.05);
+      background:#000;
+      color:#fff;
+      border:1px solid #fff;
+    }
+
+    footer{
+      margin-top:40px;
+      padding:20px 0;
+      text-align:center;
+      opacity:0.7;
+      font-size:0.9rem;
+      border-top:1px solid #444;
+      animation:fadeIn 1.6s ease;
+    }
+
+    @media (max-width:768px){
+      .quote-section{
+        flex-direction:column;
+        text-align:center;
+      }
+      .quote-text{
+        width:100%;
+        margin-bottom:30px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="center">
+    <h1>Subhas Chandra Bose</h1>
+    <div class="year">1897 – 1945</div>
+  </div>
+
+  <!-- Quote Section -->
+  <div class="quote-section">
+    <div class="quote-text">
+      “Give me blood, and I will give you freedom.”
+    </div>
+    <div class="quote-img">
+      <img src="C:\Users\megha\Downloads\IMG-20230819-WA0001.webp" alt="Subhas Chandra Bose">
+    </div>
+  </div>
+
+  <!-- Biography Section -->
+  <div class="bio-section">
+    <h2>Biography</h2>
+    <button id="toggleBtn" onclick="toggleBio()">Read More</button>
+
+    <p class="bio">
+      Subhas Chandra Bose, popularly known as Netaji, was a prominent freedom fighter who led the Indian National Army (INA) 
+      against British colonial rule. His vision was complete independence for India.
+    </p>
+
+    <p class="bio">
+      Bose advocated for armed struggle to overthrow British rule, believing it was necessary alongside nonviolent methods 
+      for achieving freedom.
+    </p>
+
+    <p class="bio">
+      He formed the Indian National Army (INA) and inspired thousands of Indians to fight for the nation with courage and 
+      determination.
+    </p>
+
+    <p class="bio">
+      Subhas Chandra Bose passed away in 1945 under mysterious circumstances, but his legacy of bravery and patriotism 
+      continues to inspire generations.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    Made with ❤️ for Subhas Chandra Bose
+  </footer>
+
+<script>
+  function toggleBio(){
+    let bios = document.querySelectorAll(".bio");
+    let btn = document.getElementById("toggleBtn");
+
+    bios.forEach(p => {
+      p.style.display = (p.style.display === "block") ? "none" : "block";
+    });
+
+    btn.innerText = btn.innerText === "Read More" ? "Show Less" : "Read More";
+  }
+</script>
+
+</body>
+</html>
