@@ -90,11 +90,6 @@ project-folder/
 │── images/
 │── README.md
 
-🚀 How to Use
-
-Clone the repository:
-
-git clone https://github.com/your-username/your-repository.git
 
 
 Open index.html in any browser.
